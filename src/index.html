@@ -13,125 +13,41 @@
     <div class="emoji mb-6">💣🤯💥</div>
     <button class="button">Boom?</button>
 
-    <!-- <form id="myForm">
-        <input class="input" type="text" name="name" id="name" placeholder="name">
-        <input class="input" type="text" name="name-slug" placeholder="slug-name">
-        <input class="input" type="number" name="contributers" placeholder="contributors" >
-        <input class="input" type="number" name="branches" placeholder="branches">
-        <button type="submit" onsubmit="validateform()">Submit</button>
-      </form> -->
 
-    <form class="form-inline" method="post">
+    <form class="form-inline">
       <div class="form-group upper-form">
-        <input type="text" class="input form-control" id="name" placeholder="name" name="name" required>
-        <div id="full-name-msg"></div>
-      </div>
-
-      <div class="form-group upper-form">
-        <input type="text" class="input form-control" id="name-slug" placeholder="name-slug" name="name-slug" required>
-        <div id="phone-msg"></div>
-      </div>
-
-      <div class="form-group bottom-form">
-        <input type="number" class="input form-control" id="contributers" placeholder="contributers" name="contributers"
+        <input type="text" class="input" id="name" placeholder="name" name="name" minlength="20" required>
+        <input type="text" class="input" id="name-slug" placeholder="name_slug" name="name-slug" required>
+        <input type="number" class="input" id="contributers" placeholder="contributers" min="1" max="100"
+          name="contributers" required>
+        <input type="number" class="input" id="branches" name="max_branches" placeholder="branches" min="1" max="100"
           required>
-        <div id="email-msg"></div>
       </div>
 
-      <div class="form-group bottom-form">
-        <input class="input form-control" type="number" id="branches" name="branches" placeholder="branches" required>
-        <div id="country-msg"></div>
-      </div>
-
-      <button type="submit" onclick="validateForm(event)" class="form-button">Send</button>
+      <button type="submit" class="form-button">Send</button>
 
 
     </form>
   </div>
 </body>
 
-<!-- <script>
-  function validateform(e) {
-    e.preventDefault()
-
-    document.getElementById('myForm').submit()
-    var name = document.getElementById('name')
-
-    if (name === '') {
-      alert("Name must be at least 20 characters");
-      return false;
-
-    }
-  }
-</script> -->
-
 <script>
-    function validateForm(event){
+  let a = document.getElementsByClassName('form-button')[0];
 
-event.preventDefault();
+  a.addEventListener('click', function () {
+    console.log('sdsdsds')
 
-// FULL NAME
-let name = document.getElementById("name").value;
-let namePattern = /^[a-zA-Z]{20,} [a-zA-Z]{20,}$/
+    let nameSlug = document.getElementById("name-slug").value;
 
-if (namePattern.test(name)) {
-  alert('gggg')
-    document.getElementById("full-name-msg").innerHTML = "";
-} else {
-    document.getElementById("full-name-msg").innerHTML = "Invalid name.";
-}
+    let nameSlugPattern = new RegExp(/^[^_\^s\^d+]*$/);
 
-
-// PHONE
-let nameSlug = document.getElementById("name-slug").value;
-
-let nameSlugPattern = /^0[0-9]{5,}$/
-
-if(nameSlugPattern.test(nameSlug)){
-  document.getElementById("phone-msg").innerHTML = "";
-}
-else{
-  document.getElementById("phone-msg").innerHTML = "Invalid phone number.";
-  document.getElementById("phone-msg").style.color = "red";
-}
-
-// CONTRIBUTERS
-let contributers = document.getElementById("contributers").value;
-
-let contributersPattern = /^0[0-9]{1,100}$/
-
-if(contributersPattern.test(contributers)){
-  document.getElementById("email-msg").innerHTML = "";
-}
-else{
-  document.getElementById("email-msg").innerHTML = "Invalid email.";
-  document.getElementById("email-msg").style.color = "red";
-}
-
- // BRANCHES
- let branches = document.getElementById("branches").value;
-
- let branchesPattern = /^0[0-9]{1,100}$/
-
- if(branchesPattern.test(branches)){
-   document.getElementById("country-msg").innerHTML = "";
- }
- else{
-   document.getElementById("country-msg").innerHTML = "Invalid email.";
-   document.getElementById("country-msg").style.color = "red";
- }
+    if (nameSlugPattern.test(nameSlug)) {
+      alert('rrrrrrrrr')
+    }
+  })
 
 
-
-
-
-
-
-
-
-
-
-}
+  
 </script>
 
 </html>
