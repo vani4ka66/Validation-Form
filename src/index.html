@@ -41,6 +41,7 @@
     let nameSlug = document.getElementById("name-slug").value;
 
     let nameSlugPattern = new RegExp(/^[^_\s\d+]*$/);
+    let nameSlugPattern = new RegExp(/[a-z][a-z0-9]*)(-[a-z0-9]+)*$/)
 
     if (nameSlugPattern.test(nameSlug)) {
       e.preventDefault()
