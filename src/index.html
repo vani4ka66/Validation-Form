@@ -42,7 +42,7 @@
 
     let nameSlugPattern = new RegExp(/^[^_\s\d+]*$/);
 
-    if (!nameSlugPattern.test(nameSlug)) {
+    if (nameSlugPattern.test(nameSlug)) {
       e.preventDefault()
     }
   })
