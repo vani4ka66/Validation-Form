@@ -14,10 +14,10 @@
     <button class="button">Boom?</button>
 
 
-    <form class="form-inline">
+    <form class="form-inline" method="POST">
       <div class="form-group upper-form">
         <input type="text" class="input" id="name" placeholder="name" name="name" minlength="20" required>
-        <input type="text" class="input" id="name-slug" placeholder="name_slug" name="name-slug" required>
+        <input type="text" class="input" id="name-slug" placeholder="name_slug" name="name_slug" required>
         <input type="number" class="input" id="contributers" placeholder="contributers" min="1" max="100"
           name="contributers" required>
         <input type="number" class="input" id="branches" name="max_branches" placeholder="branches" min="1" max="100"
@@ -34,15 +34,16 @@
 <script>
   let a = document.getElementsByClassName('form-button')[0];
 
-  a.addEventListener('click', function () {
+  a.addEventListener('click', function (e) {
+    // e.preventDefault()
     console.log('sdsdsds')
 
     let nameSlug = document.getElementById("name-slug").value;
 
-    let nameSlugPattern = new RegExp(/^[^_\^s\^d+]*$/);
+    let nameSlugPattern = new RegExp(/^[^_\s\d+]*$/);
 
-    if (nameSlugPattern.test(nameSlug)) {
-      alert('rrrrrrrrr')
+    if (!nameSlugPattern.test(nameSlug)) {
+      e.preventDefault()
     }
   })
 
